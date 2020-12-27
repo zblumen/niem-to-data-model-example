@@ -7,6 +7,44 @@
         </jxb:schemaBindings>
     </jxb:bindings>
 
+    <jxb:bindings schemaLocation="../codes/aamva_d20.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.codes.aamva_d20">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../codes/iso_4217.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.codes.iso_4217">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../codes/mmucc.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.codes.mmucc">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../codes/ncic.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.codes.ncic">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+    <jxb:bindings schemaLocation="../domains/intelligence.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.domains.intelligence">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../domains/jxdm.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.domains.jxdm">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
     <jxb:bindings schemaLocation="../utility/appinfo.xsd" node="/xs:schema">
         <jxb:schemaBindings>
             <jxb:package name="gov.niem.utility.appinfo">
