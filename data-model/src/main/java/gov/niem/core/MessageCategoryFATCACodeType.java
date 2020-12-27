@@ -6,7 +6,7 @@
 //
 
 
-package gov.niem.adapters.xs;
+package gov.niem.core;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -28,16 +28,16 @@ import javax.xml.namespace.QName;
 
 
 /**
- * A data type for a Uniform Resource Identifier Reference (URI).  A value can be absolute or relative, and may have an optional fragment identifier (i.e., it may be a URI Reference).
+ * A data type for kind of Foreign Account Tax Compliance Act (FATCA) message.
  * 
- * <p>Java class for anyURI complex type.
+ * <p>Java class for MessageCategoryFATCACodeType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="anyURI"&gt;
+ * &lt;complexType name="MessageCategoryFATCACodeType"&gt;
  *   &lt;simpleContent&gt;
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;anyURI"&gt;
+ *     &lt;extension base="&lt;http://release.niem.gov/niem/niem-core/5.0/&gt;MessageCategoryFATCACodeSimpleType"&gt;
  *       &lt;attGroup ref="{http://release.niem.gov/niem/structures/5.0/}SimpleObjectAttributeGroup"/&gt;
  *       &lt;anyAttribute processContents='lax' namespace='urn:us:gov:ic:ntk urn:us:gov:ic:ism'/&gt;
  *     &lt;/extension&gt;
@@ -48,26 +48,25 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "anyURI", namespace = "http://release.niem.gov/niem/proxy/niem-xs/5.0/", propOrder = {
+@XmlType(name = "MessageCategoryFATCACodeType", namespace = "http://release.niem.gov/niem/niem-core/5.0/", propOrder = {
     "value"
 })
-public class AnyURI {
+public class MessageCategoryFATCACodeType {
 
     @XmlValue
-    @XmlSchemaType(name = "anyURI")
-    protected java.lang.String value;
+    protected MessageCategoryFATCACodeSimpleType value;
     @XmlAttribute(name = "id", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
-    protected java.lang.String id;
+    protected String id;
     @XmlAttribute(name = "ref", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object ref;
     @XmlAttribute(name = "uri", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlSchemaType(name = "anyURI")
-    protected java.lang.String uri;
+    protected String uri;
     @XmlAttribute(name = "metadata", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlIDREF
     @XmlSchemaType(name = "IDREFS")
@@ -80,17 +79,17 @@ public class AnyURI {
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger sequenceID;
     @XmlAnyAttribute
-    private Map<QName, java.lang.String> otherAttributes = new HashMap<QName, java.lang.String>();
+    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * Gets the value of the value property.
+     * A data type for kind of Foreign Account Tax Compliance Act (FATCA) message.
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.String }
+     *     {@link MessageCategoryFATCACodeSimpleType }
      *     
      */
-    public java.lang.String getValue() {
+    public MessageCategoryFATCACodeSimpleType getValue() {
         return value;
     }
 
@@ -99,10 +98,10 @@ public class AnyURI {
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.String }
+     *     {@link MessageCategoryFATCACodeSimpleType }
      *     
      */
-    public void setValue(java.lang.String value) {
+    public void setValue(MessageCategoryFATCACodeSimpleType value) {
         this.value = value;
     }
 
@@ -111,10 +110,10 @@ public class AnyURI {
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public java.lang.String getId() {
+    public String getId() {
         return id;
     }
 
@@ -123,10 +122,10 @@ public class AnyURI {
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public void setId(java.lang.String value) {
+    public void setId(String value) {
         this.id = value;
     }
 
@@ -159,10 +158,10 @@ public class AnyURI {
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public java.lang.String getUri() {
+    public String getUri() {
         return uri;
     }
 
@@ -171,10 +170,10 @@ public class AnyURI {
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public void setUri(java.lang.String value) {
+    public void setUri(String value) {
         this.uri = value;
     }
 
@@ -274,7 +273,7 @@ public class AnyURI {
      * @return
      *     always non-null
      */
-    public Map<QName, java.lang.String> getOtherAttributes() {
+    public Map<QName, String> getOtherAttributes() {
         return otherAttributes;
     }
 

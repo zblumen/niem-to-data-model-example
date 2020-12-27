@@ -24,20 +24,21 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
 
 /**
- * A data type for a Uniform Resource Identifier Reference (URI).  A value can be absolute or relative, and may have an optional fragment identifier (i.e., it may be a URI Reference).
+ * A data type for a Gregorian calendar year with the format CCYY.
  * 
- * <p>Java class for anyURI complex type.
+ * <p>Java class for gYear complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="anyURI"&gt;
+ * &lt;complexType name="gYear"&gt;
  *   &lt;simpleContent&gt;
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;anyURI"&gt;
+ *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;gYear"&gt;
  *       &lt;attGroup ref="{http://release.niem.gov/niem/structures/5.0/}SimpleObjectAttributeGroup"/&gt;
  *       &lt;anyAttribute processContents='lax' namespace='urn:us:gov:ic:ntk urn:us:gov:ic:ism'/&gt;
  *     &lt;/extension&gt;
@@ -48,14 +49,14 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "anyURI", namespace = "http://release.niem.gov/niem/proxy/niem-xs/5.0/", propOrder = {
+@XmlType(name = "gYear", namespace = "http://release.niem.gov/niem/proxy/niem-xs/5.0/", propOrder = {
     "value"
 })
-public class AnyURI {
+public class GYear {
 
     @XmlValue
-    @XmlSchemaType(name = "anyURI")
-    protected java.lang.String value;
+    @XmlSchemaType(name = "gYear")
+    protected XMLGregorianCalendar value;
     @XmlAttribute(name = "id", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -87,10 +88,10 @@ public class AnyURI {
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public java.lang.String getValue() {
+    public XMLGregorianCalendar getValue() {
         return value;
     }
 
@@ -99,10 +100,10 @@ public class AnyURI {
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setValue(java.lang.String value) {
+    public void setValue(XMLGregorianCalendar value) {
         this.value = value;
     }
 

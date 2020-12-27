@@ -223,6 +223,19 @@
       <xs:documentation>A data type for a person, organization, or item.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:EntityRepresentation" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:EntityLegalIndicator" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenericEntityType">
+    <xs:annotation>
+      <xs:documentation>A data type for a basic set of information about a person or an organization.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
       <xs:extension base="structures:ObjectType"/>
     </xs:complexContent>
   </xs:complexType>
@@ -277,9 +290,74 @@
       <xs:extension base="structures:ObjectType"/>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="ItemDispositionType">
+    <xs:annotation>
+      <xs:documentation>A data type for a result or outcome that happens to a property item after it has been handled or processed.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="nc:DispositionType"/>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="ItemType">
     <xs:annotation>
       <xs:documentation>A data type for an article or thing.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:ItemActionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemAgeMeasure" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemBarCodeIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemBinary" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemBrandName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemCategoryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemColorDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemColorPrimaryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemColorSecondaryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemConditionAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemCurrentResaleValue" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemDealerIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemDisposition" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemFirstSoldYearDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemHeightMeasure" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemImage" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemLeaseIndicator" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemLengthMeasure" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemMakeAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemModelName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemModelYearDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemOtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemOwner" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemOwnerAppliedID" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemOwnerPurchasedValue" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemOwnershipCategoryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemPossessionDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemPossessor" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemQuantity" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemReceiptIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemRentalIndicator" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemRFIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemSalesTaxPercent" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemSerialIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemSizeDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemStateIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemStyleAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemUsageText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemValue" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemVisibleID" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemWeightMeasure" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemWidthMeasure" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:ItemAugmentationPoint" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ItemValueType">
+    <xs:annotation>
+      <xs:documentation>A data type for an evaluation of the monetary worth of an item.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="structures:ObjectType"/>
@@ -377,6 +455,33 @@
     <xs:complexContent>
       <xs:extension base="structures:ObjectType"/>
     </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="MessageCategoryFATCACodeSimpleType">
+    <xs:annotation>
+      <xs:documentation>A data type for kind of Foreign Account Tax Compliance Act (FATCA) message.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="FATCA">
+        <xs:annotation>
+          <xs:documentation>Foreign Account Tax Compliance Act</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>Other</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MessageCategoryFATCACodeType">
+    <xs:annotation>
+      <xs:documentation>A data type for kind of Foreign Account Tax Compliance Act (FATCA) message.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nc:MessageCategoryFATCACodeSimpleType">
+        <xs:attributeGroup ref="structures:SimpleObjectAttributeGroup"/>
+      </xs:extension>
+    </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="MessageType">
     <xs:annotation>
@@ -529,6 +634,14 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PercentType">
+    <xs:annotation>
+      <xs:documentation>A data type for a ratio, proper fraction, or percentage, with 100% represented as the value 100.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="niem-xs:decimal"/>
+    </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="PersonCitizenshipType">
     <xs:annotation>
@@ -1117,6 +1230,31 @@
       <xs:documentation>A data concept for a general kind of job of an employee.</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:element name="EntityLegalIndicator" type="niem-xs:boolean" nillable="true">
+    <xs:annotation>
+      <xs:documentation>True if an entity is capable of bearing legal rights and responsibilities; false otherwise.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityOrganization" type="nc:OrganizationType" substitutionGroup="nc:EntityRepresentation">
+    <xs:annotation>
+      <xs:documentation>An organization capable of bearing legal rights and responsibilities.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityPerson" type="nc:PersonType" substitutionGroup="nc:EntityRepresentation">
+    <xs:annotation>
+      <xs:documentation>A person capable of bearing legal rights and responsibilities.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityRepresentation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a representation of an entity.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="GenericEntity" type="nc:GenericEntityType" substitutionGroup="nc:EntityRepresentation">
+    <xs:annotation>
+      <xs:documentation>A basic set of information about a person or an organization.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:element name="IdentificationAugmentationPoint" abstract="true">
     <xs:annotation>
       <xs:documentation>An augmentation point for IdentificationType.</xs:documentation>
@@ -1180,6 +1318,236 @@
   <xs:element name="ImageWidthValue" type="niem-xs:nonNegativeInteger" nillable="true">
     <xs:annotation>
       <xs:documentation>A width of an image in pixels.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemActionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An action that was taken against a property item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemAgeMeasure" type="nc:TimeMeasureType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An age of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemAugmentationPoint" abstract="true">
+    <xs:annotation>
+      <xs:documentation>An augmentation point for ItemType.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemBarCodeIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A bar code identification assigned to a property item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemBinary" type="nc:BinaryType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A binary representation of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemBrandName" type="nc:ProperNameTextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A distinctive name that identifies a manufacturer of a property item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemCategoryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a kind of item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemColorDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of the overall color of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemColorPrimaryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a primary color of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemColorSecondaryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a secondary color of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemConditionAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a state or appearance of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemCurrentResaleValue" type="nc:ItemValueType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An amount of money for which an item could currently be sold.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemDealerIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identification assigned to an item by a dealer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemDisposition" type="nc:ItemDispositionType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A result or outcome that happens to an item after it has been handled or processed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemFirstSoldYearDate" type="niem-xs:gYear" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A calendar year in which an item was first sold.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemHeightMeasure" type="nc:LengthMeasureType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A measurement of the height of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemImage" type="nc:ImageType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A binary representation of an image of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemLeaseIndicator" type="niem-xs:boolean" nillable="true">
+    <xs:annotation>
+      <xs:documentation>True if an item is leased; false otherwise.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemLengthMeasure" type="nc:LengthMeasureType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A measurement of the length of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemMakeAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a manufacturer that produced an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemModelName" type="nc:ProperNameTextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A name of a specific design or kind of item made by a manufacturer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemModelYearDate" type="niem-xs:gYear" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A year in which an item was manufactured or produced.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemName" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A name of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemOtherIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identification assigned to an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemOwner" type="nc:EntityType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An entity which owns a property item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemOwnerAppliedID" type="niem-xs:string" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identifier applied to an item by the owner.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemOwnerPurchasedValue" type="nc:ItemValueType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An amount of money a current owner paid to purchase a property item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemOwnershipCategoryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a kind of ownership of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemPossessionDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of how or why a party other than the owner came to possess a property item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemPossessor" type="nc:EntityType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An entity other than the owner which has possession of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemQuantity" type="nc:QuantityType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A count of the individual units which make up an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemReceiptIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identification issued to an item when taken into possession for official purposes.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemRentalIndicator" type="niem-xs:boolean" nillable="true">
+    <xs:annotation>
+      <xs:documentation>True if an item is rented; false otherwise.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemRFIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identification of an item based on radio waves.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemSalesTaxPercent" type="nc:PercentType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A tax rate as a percentage used for computing the sales tax on the purchase of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemSerialIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identification inscribed on or attached to a part, collection of parts, or complete unit by the manufacturer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemSizeDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of the size or physical dimensions of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemStateIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A state-assigned identification for an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemStatus" type="nc:StatusType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A status of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemStyleAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a style of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemUsageText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A manner or way in which an item is used.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemValue" type="nc:ItemValueType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An evaluation of the monetary worth of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemVisibleID" type="niem-xs:string" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identifier of an item that is visible on the item itself.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemWeightMeasure" type="nc:WeightMeasureType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A measurement of the weight of an item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ItemWidthMeasure" type="nc:LengthMeasureType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A measurement of the width of an item.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="LocationAddressAbstract" abstract="true">
@@ -1302,6 +1670,16 @@
       <xs:documentation>A data concept for a kind of message category.</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:element name="MessageCategoryFATCACode" type="nc:MessageCategoryFATCACodeType" substitutionGroup="nc:MessageCategoryAbstract">
+    <xs:annotation>
+      <xs:documentation>A kind of message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageCategoryText" type="nc:TextType" substitutionGroup="nc:MessageCategoryAbstract">
+    <xs:annotation>
+      <xs:documentation>A kind of message category.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:element name="MessageFATCAUsageRestrictionAbstract" abstract="true">
     <xs:annotation>
       <xs:documentation>A data concept for a set of information about restrictions for use of the information this message contains and the legal framework under which it is given.</xs:documentation>
@@ -1327,6 +1705,11 @@
       <xs:documentation>An address of a recipient of a message.</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:element name="MessageRecipientEntity" type="nc:EntityType" substitutionGroup="nc:MessageRecipientAbstract">
+    <xs:annotation>
+      <xs:documentation>An entity which receives a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:element name="MessageReferenceID" type="niem-xs:string" nillable="true">
     <xs:annotation>
       <xs:documentation>An identifier that references a sender's or otherwise related message.</xs:documentation>
@@ -1340,6 +1723,11 @@
   <xs:element name="MessageSenderAddressID" type="niem-xs:string" nillable="true">
     <xs:annotation>
       <xs:documentation>An address of a sender of a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageSenderEntity" type="nc:EntityType" substitutionGroup="nc:MessageSenderAbstract">
+    <xs:annotation>
+      <xs:documentation>An entity which sends a message.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="MessageSentDate" type="nc:DateType" nillable="true">
