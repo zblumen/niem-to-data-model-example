@@ -23,6 +23,11 @@
             <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>niem-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

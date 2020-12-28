@@ -4,6 +4,8 @@ import com.zblumen.model.domain.event.Event;
 import com.zblumen.model.domain.subject.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -11,11 +13,9 @@ import java.util.List;
 @Data
 public abstract class Communication extends Event {
 
-    protected Subject sender;
     protected List<Person> personRecipients;
     protected List<Organization> organizationRecipients;
     protected List<GenericSubject> genericRecipients;
     protected Boolean isGroupCommunication;
     protected Group CommunicationGroup;
-
 }

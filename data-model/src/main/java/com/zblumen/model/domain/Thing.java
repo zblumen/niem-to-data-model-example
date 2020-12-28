@@ -1,8 +1,10 @@
 package com.zblumen.model.domain;
 
-import lombok.Data;
+import com.zblumen.model.conversion.DefaultNiemConverter;
+
+import lombok.*;
 
 @Data
-public abstract class Thing {
+public abstract class Thing extends DefaultNiemConverter {
     protected String id;
 }
