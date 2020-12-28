@@ -31,6 +31,12 @@
             </jxb:package>
         </jxb:schemaBindings>
     </jxb:bindings>
+    <jxb:bindings schemaLocation="../codes/ndex.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.codes.ndex">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
 
     <jxb:bindings schemaLocation="../domains/intelligence.xsd" node="/xs:schema">
         <jxb:schemaBindings>

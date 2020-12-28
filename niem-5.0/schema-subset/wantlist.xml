@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <w:WantList w:release="5.0" w:product="NIEM" w:nillableDefault="true"
-  xmlns:intel="http://release.niem.gov/niem/domains/intelligence/5.0/"
-  xmlns:aamva_d20="http://release.niem.gov/niem/codes/aamva_d20/5.0/"
-  xmlns:mmucc="http://release.niem.gov/niem/codes/mmucc/5.0/"
-  xmlns:nc="http://release.niem.gov/niem/niem-core/5.0/"
   xmlns:w="http://niem.gov/niem/wantlist/2.2"
+  xmlns:aamva_d20="http://release.niem.gov/niem/codes/aamva_d20/5.0/"
+  xmlns:iso_4217="http://release.niem.gov/niem/codes/iso_4217/5.0/"
+  xmlns:intel="http://release.niem.gov/niem/domains/intelligence/5.0/"
+  xmlns:j="http://release.niem.gov/niem/domains/jxdm/7.0/"
   xmlns:ncic="http://release.niem.gov/niem/codes/ncic/5.0/"
-  xmlns:iso_4217="http://release.niem.gov/niem/codes/iso_4217/5.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/7.0/">
+  xmlns:mmucc="http://release.niem.gov/niem/codes/mmucc/5.0/"
+  xmlns:ndex="http://release.niem.gov/niem/codes/ndex/5.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/5.0/">
   <w:Element w:name="intel:IdentificationAugmentation"
     w:isReference="false" w:nillable="true"/>
   <w:Element w:name="iso_4217:CurrencyCode" w:isReference="false" w:nillable="false"/>
+  <w:Element w:name="j:BinaryCategoryCode" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="j:CrashDriverLicensePermitStatusCode"
     w:isReference="false" w:nillable="false"/>
   <w:Element w:name="j:DNACollectionStatusText" w:isReference="false" w:nillable="false"/>
@@ -21,6 +23,7 @@
     w:isReference="false" w:nillable="false"/>
   <w:Element w:name="j:PersonCautionInformationCode"
     w:isReference="false" w:nillable="false"/>
+  <w:Element w:name="nc:BinaryFormatText" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="nc:EntityOrganization" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="nc:EntityPerson" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="nc:GenericEntity" w:isReference="false" w:nillable="false"/>
@@ -667,6 +670,28 @@
     <w:ElementInType w:name="nc:AmountAugmentationPoint"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
+  <w:Type w:name="nc:BinaryHashType" w:isRequested="false">
+    <w:ElementInType w:name="nc:BinaryHashCode" w:isReference="false"
+      w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryHashFunctionAbstract"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+  </w:Type>
+  <w:Type w:name="nc:BinaryType" w:isRequested="true">
+    <w:ElementInType w:name="nc:BinaryCategoryAbstract"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryHash" w:isReference="false"
+      w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryAvailableIndicator"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryCaptureDate" w:isReference="false"
+      w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryDescriptionText"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryFormatAbstract"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:BinaryURI" w:isReference="false"
+      w:minOccurs="0" w:maxOccurs="unbounded"/>
+  </w:Type>
   <w:Type w:name="nc:ContactInformationType" w:isRequested="false">
     <w:ElementInType w:name="nc:ContactMeansAbstract"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
@@ -685,7 +710,7 @@
     <w:ElementInType w:name="nc:ContactInformationAugmentationPoint"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
-  <w:Type w:name="nc:DocumentType" w:isRequested="false">
+  <w:Type w:name="nc:DocumentType" w:isRequested="true">
     <w:ElementInType w:name="nc:DocumentApprovedIndicator"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:DocumentAuthor" w:isReference="false"
@@ -1305,5 +1330,38 @@
     <w:Facet w:facet="enumeration" w:value="C"/>
     <w:Facet w:facet="enumeration" w:value="N"/>
     <w:Facet w:facet="enumeration" w:value="U"/>
+  </w:Type>
+  <w:Type w:name="ndex:BinaryCategoryCodeSimpleType" w:isRequested="false">
+    <w:Facet w:facet="enumeration" w:value="AUDIO"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_APPROVED_TELEPHONE_LIST"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_EMAIL_MESSAGE"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_EMAIL_USAGE_LOG"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_IDENTIFICATION"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_PHONE_PEN_REGISTER"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_TELEPHONE_CALL_LOG"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_TELEPHONE_CALL_REQUEST_LIST"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_TEXTING_MESSAGE"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_VISITOR_LOG"/>
+    <w:Facet w:facet="enumeration" w:value="DOCUMENT_VISITOR_REQUEST_LIST"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_AERIAL_PHOTO"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_BIOMETRIC"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_BIOMETRIC_DNA"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_BIOMETRIC_FINGERPRINT"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_CHILD_PORNOGRAPHY_PHOTO"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_CRIMINAL_JUSTICE_PHOTO"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_DRIVER_LICENSE_PHOTO"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_EXAMPLE_PHOTO"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_MEDICAL_PHOTO"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_MUG_SHOT"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_PHYSICAL_FEATURE"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_POLICE_SKETCH"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_PORTRAIT"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_PROPERTY_ITEM"/>
+    <w:Facet w:facet="enumeration" w:value="IMAGE_SNAPSHOT"/>
+    <w:Facet w:facet="enumeration" w:value="MALWARE"/>
+    <w:Facet w:facet="enumeration" w:value="OTHER"/>
+    <w:Facet w:facet="enumeration" w:value="VIDEO"/>
   </w:Type>
 </w:WantList>

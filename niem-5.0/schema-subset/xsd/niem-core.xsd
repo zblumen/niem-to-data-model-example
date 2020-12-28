@@ -67,12 +67,35 @@
       <xs:extension base="structures:ObjectType"/>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="BinaryHashType">
+    <xs:annotation>
+      <xs:documentation>A data type for a hash value representing an object encoded in a binary format.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:BinaryHashCode" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryHashFunctionAbstract" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="BinaryType">
     <xs:annotation>
       <xs:documentation>A data type for a digital representation of an object encoded in a binary format.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="structures:ObjectType"/>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:BinaryCategoryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryHash" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryAvailableIndicator" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryCaptureDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryFormatAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryURI" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="CapabilityType">
@@ -848,6 +871,56 @@
   <xs:element name="AmountAugmentationPoint" abstract="true">
     <xs:annotation>
       <xs:documentation>An augmentation point for AmountType.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryAvailableIndicator" type="niem-xs:boolean" nillable="true">
+    <xs:annotation>
+      <xs:documentation>True if a binary is available; false if it is not.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryCaptureDate" type="nc:DateType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A date on which a binary object is captured or created.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryCategoryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a kind of binary object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of a binary object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryFormatAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a file format or content type of a binary object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryFormatText" type="nc:TextType" substitutionGroup="nc:BinaryFormatAbstract">
+    <xs:annotation>
+      <xs:documentation>A file format or content type of a binary object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryHash" type="nc:BinaryHashType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A hash value representing an object encoded in a binary format.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryHashCode" type="niem-xs:string" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A binary hash value.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryHashFunctionAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a hash function used to generate a hash value representing an object encoded in a binary format.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryURI" type="niem-xs:anyURI" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A URL or file reference of a binary object.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="ContactEntity" type="nc:EntityType" nillable="true">

@@ -11,6 +11,7 @@
     <modules>
         <module>jaxb-generator</module>
         <module>data-model</module>
+        <module>niem-model</module>
     </modules>
 
     <properties>

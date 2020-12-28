@@ -43,7 +43,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <outputDirectory>../data-model/src/main/java</outputDirectory>
+                    <outputDirectory>../niem-model/src/main/java</outputDirectory>
                     <clearOutputDir>true</clearOutputDir>
                     <generateEpisode>false</generateEpisode>
                     <noPackageLevelAnnotations>true</noPackageLevelAnnotations>
