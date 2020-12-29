@@ -6,7 +6,6 @@
   <uri name="http://release.niem.gov/niem/codes/iso_4217/5.0/" uri="codes/iso_4217.xsd"/>
   <uri name="http://release.niem.gov/niem/codes/mmucc/5.0/" uri="codes/mmucc.xsd"/>
   <uri name="http://release.niem.gov/niem/codes/ncic/5.0/" uri="codes/ncic.xsd"/>
-  <uri name="http://release.niem.gov/niem/codes/ndex/5.0/" uri="codes/ndex.xsd"/>
   <uri name="http://release.niem.gov/niem/conformanceTargets/3.0/" uri="utility/conformanceTargets.xsd"/>
   <uri name="http://release.niem.gov/niem/domains/intelligence/5.0/" uri="domains/intelligence.xsd"/>
   <uri name="http://release.niem.gov/niem/domains/jxdm/7.0/" uri="domains/jxdm.xsd"/>

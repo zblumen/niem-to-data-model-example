@@ -7,11 +7,11 @@
   xmlns:j="http://release.niem.gov/niem/domains/jxdm/7.0/"
   xmlns:ncic="http://release.niem.gov/niem/codes/ncic/5.0/"
   xmlns:mmucc="http://release.niem.gov/niem/codes/mmucc/5.0/"
-  xmlns:ndex="http://release.niem.gov/niem/codes/ndex/5.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/5.0/">
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:niem-xs="http://release.niem.gov/niem/proxy/niem-xs/5.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/5.0/">
   <w:Element w:name="intel:IdentificationAugmentation"
     w:isReference="false" w:nillable="true"/>
   <w:Element w:name="iso_4217:CurrencyCode" w:isReference="false" w:nillable="false"/>
-  <w:Element w:name="j:BinaryCategoryCode" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="j:CrashDriverLicensePermitStatusCode"
     w:isReference="false" w:nillable="false"/>
   <w:Element w:name="j:DNACollectionStatusText" w:isReference="false" w:nillable="false"/>
@@ -23,7 +23,7 @@
     w:isReference="false" w:nillable="false"/>
   <w:Element w:name="j:PersonCautionInformationCode"
     w:isReference="false" w:nillable="false"/>
-  <w:Element w:name="nc:BinaryFormatText" w:isReference="false" w:nillable="false"/>
+  <w:Element w:name="nc:DateTime" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="nc:EntityOrganization" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="nc:EntityPerson" w:isReference="false" w:nillable="false"/>
   <w:Element w:name="nc:GenericEntity" w:isReference="false" w:nillable="false"/>
@@ -670,28 +670,6 @@
     <w:ElementInType w:name="nc:AmountAugmentationPoint"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
-  <w:Type w:name="nc:BinaryHashType" w:isRequested="false">
-    <w:ElementInType w:name="nc:BinaryHashCode" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryHashFunctionAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-  </w:Type>
-  <w:Type w:name="nc:BinaryType" w:isRequested="true">
-    <w:ElementInType w:name="nc:BinaryCategoryAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryHash" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryAvailableIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryCaptureDate" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryFormatAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:BinaryURI" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-  </w:Type>
   <w:Type w:name="nc:ContactInformationType" w:isRequested="false">
     <w:ElementInType w:name="nc:ContactMeansAbstract"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
@@ -710,7 +688,11 @@
     <w:ElementInType w:name="nc:ContactInformationAugmentationPoint"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
-  <w:Type w:name="nc:DocumentType" w:isRequested="true">
+  <w:Type w:name="nc:DateType" w:isRequested="true">
+    <w:ElementInType w:name="nc:DateRepresentation"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+  </w:Type>
+  <w:Type w:name="nc:DocumentType" w:isRequested="false">
     <w:ElementInType w:name="nc:DocumentApprovedIndicator"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:DocumentAuthor" w:isReference="false"
@@ -842,10 +824,16 @@
     <w:ElementInType w:name="nc:DocumentAugmentationPoint"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
-  <w:Type w:name="nc:EntityType" w:isRequested="false">
+  <w:Type w:name="nc:EntityType" w:isRequested="true">
     <w:ElementInType w:name="nc:EntityRepresentation"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:EntityLegalIndicator"
+      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
+  </w:Type>
+  <w:Type w:name="nc:GenericEntityType" w:isRequested="false">
+    <w:ElementInType w:name="nc:EntityName" w:isReference="false"
+      w:minOccurs="0" w:maxOccurs="unbounded"/>
+    <w:ElementInType w:name="nc:EntityDescriptionText"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
   <w:Type w:name="nc:IdentificationType" w:isRequested="false">
@@ -1141,170 +1129,36 @@
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
   <w:Type w:name="nc:PersonType" w:isRequested="true">
-    <w:ElementInType w:name="nc:PersonAccentText" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonAgeDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonAgeMeasure" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonBirthDate" w:isReference="false"
       w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonBirthLocation"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonBloodTypeAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonBodyXRaysAvailableAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonBuildAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonCapability" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonCircumcisionIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonCitizenship" w:isReference="false"
       w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonComplexionAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonDeathDate" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonDependentQuantity"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonDescriptionText"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonDigitalImage"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonDigitizedSignatureImage"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonDisguiseDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonOrganDonorAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonEducation" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonEmployedIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonEthnicityAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonEyeColorAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonEyewearAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonFacialHairAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonGeneralAppearanceDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHairAppearanceText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHairCategoryAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHairColorAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHairLengthAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHairStyleAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHandednessAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHeightDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHeightMeasure"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHumanResourceIdentification"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonInjury" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonJewelryDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonJobTitleText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonLanguageEnglishIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonLearningDisabilityAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonLicenseIdentification"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonLivingIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMedicalCondition"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMedicalDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMedicalFileIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMedicationRequiredText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMentalStateAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMilitarySummary"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonMoodDescriptionText"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonName" w:isReference="false"
       w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonNationalIdentification"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonOrganDonorIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonOtherIdentification"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonPassportIdentification"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonPhysicalDisabilityText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonPhysicalFeature"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonPrimaryLanguage"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonRaceAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonReligionAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonResidentAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonSecondaryLanguage"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonSecurityClearanceAbstract"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonSexAbstract" w:isReference="false"
       w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonSexualOrientationAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonSkinToneAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonSpeechDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonSSNIdentification"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonStateIdentification"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonTaxIdentification"
       w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonUnemploymentStatus"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonUnionStatusAbstract"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonUSCitizenIndicator"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonVisionPrescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonWeightDescriptionText"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonWeightMeasure"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonXRayImage" w:isReference="false"
-      w:minOccurs="0" w:maxOccurs="unbounded"/>
     <w:ElementInType w:name="nc:PersonNationality" w:isReference="false"
       w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonContactInformation"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:EmployeeContactInformation"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonEmergencyContactInformation"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonHomeContactInformation"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
-    <w:ElementInType w:name="nc:PersonAugmentationPoint"
-      w:isReference="false" w:minOccurs="0" w:maxOccurs="unbounded"/>
   </w:Type>
   <w:Type w:name="ncic:CMCCodeSimpleType" w:isRequested="false">
     <w:Facet w:facet="enumeration" w:value="00"/>
@@ -1331,37 +1185,6 @@
     <w:Facet w:facet="enumeration" w:value="N"/>
     <w:Facet w:facet="enumeration" w:value="U"/>
   </w:Type>
-  <w:Type w:name="ndex:BinaryCategoryCodeSimpleType" w:isRequested="false">
-    <w:Facet w:facet="enumeration" w:value="AUDIO"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_APPROVED_TELEPHONE_LIST"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_EMAIL_MESSAGE"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_EMAIL_USAGE_LOG"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_IDENTIFICATION"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_PHONE_PEN_REGISTER"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_TELEPHONE_CALL_LOG"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_TELEPHONE_CALL_REQUEST_LIST"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_TEXTING_MESSAGE"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_VISITOR_LOG"/>
-    <w:Facet w:facet="enumeration" w:value="DOCUMENT_VISITOR_REQUEST_LIST"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_AERIAL_PHOTO"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_BIOMETRIC"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_BIOMETRIC_DNA"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_BIOMETRIC_FINGERPRINT"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_CHILD_PORNOGRAPHY_PHOTO"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_CRIMINAL_JUSTICE_PHOTO"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_DRIVER_LICENSE_PHOTO"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_EXAMPLE_PHOTO"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_MEDICAL_PHOTO"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_MUG_SHOT"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_PHYSICAL_FEATURE"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_POLICE_SKETCH"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_PORTRAIT"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_PROPERTY_ITEM"/>
-    <w:Facet w:facet="enumeration" w:value="IMAGE_SNAPSHOT"/>
-    <w:Facet w:facet="enumeration" w:value="MALWARE"/>
-    <w:Facet w:facet="enumeration" w:value="OTHER"/>
-    <w:Facet w:facet="enumeration" w:value="VIDEO"/>
-  </w:Type>
+  <w:Type w:name="niem-xs:dateTime" w:isRequested="true"/>
+  <w:Type w:name="xs:dateTime" w:isRequested="true"/>
 </w:WantList>

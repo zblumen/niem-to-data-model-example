@@ -12,19 +12,9 @@ public class PersonMessage extends Message implements Niemable<MessageType> {
     private Person sender;
 
     @Override
-    public MessageType makeNiemObject() {
-        MessageType result = ncObjectFactory.createMessageType();
-        result.setId(this.id);
-
-        if(this.referenceId !=null){
-            result.getMessageReferenceID().add(convertString(this.referenceId));
-        }
-        if(this.messageHeaderText != null){
-            result.getMessageSubjectText().add(convertTextType(this.messageHeaderText));
-        }
-        if(this.messageBodyText != null){
-            result.getMessageText().add(convertTextType(this.messageBodyText));
-        }
+    public MessageType makeNiemType() {
+        MessageType result = makeBaseNiemType();
+        result.getMessageSenderAbstract().add(this.ncObjectFactory.createPerson(this.sender.makeNiemType()));
         return result;
     }
 }

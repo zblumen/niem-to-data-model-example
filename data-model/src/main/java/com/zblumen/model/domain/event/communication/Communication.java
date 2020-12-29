@@ -17,5 +17,5 @@ public abstract class Communication extends Event {
     protected List<Organization> organizationRecipients;
     protected List<GenericSubject> genericRecipients;
     protected Boolean isGroupCommunication;
-    protected Group CommunicationGroup;
+    protected Group communicationGroup;
 }
