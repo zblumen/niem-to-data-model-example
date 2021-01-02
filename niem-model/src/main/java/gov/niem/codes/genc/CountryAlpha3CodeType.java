@@ -6,7 +6,7 @@
 //
 
 
-package gov.niem.adapters.xs;
+package gov.niem.codes.genc;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -24,21 +24,20 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
 
 /**
- * A data type for objects with integer-valued year, month, day, hour and minute properties, a decimal-valued second property, and a boolean timezoned property.
+ * A data type for country codes.
  * 
- * <p>Java class for dateTime complex type.
+ * <p>Java class for CountryAlpha3CodeType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="dateTime"&gt;
+ * &lt;complexType name="CountryAlpha3CodeType"&gt;
  *   &lt;simpleContent&gt;
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;dateTime"&gt;
+ *     &lt;extension base="&lt;http://release.niem.gov/niem/codes/genc/5.0/&gt;CountryAlpha3CodeSimpleType"&gt;
  *       &lt;attGroup ref="{http://release.niem.gov/niem/structures/5.0/}SimpleObjectAttributeGroup"/&gt;
  *       &lt;anyAttribute processContents='lax' namespace='urn:us:gov:ic:ntk urn:us:gov:ic:ism'/&gt;
  *     &lt;/extension&gt;
@@ -49,26 +48,25 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dateTime", namespace = "http://release.niem.gov/niem/proxy/niem-xs/5.0/", propOrder = {
+@XmlType(name = "CountryAlpha3CodeType", namespace = "http://release.niem.gov/niem/codes/genc/5.0/", propOrder = {
     "value"
 })
-public class DateTime {
+public class CountryAlpha3CodeType {
 
     @XmlValue
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar value;
+    protected CountryAlpha3CodeSimpleType value;
     @XmlAttribute(name = "id", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
-    protected java.lang.String id;
+    protected String id;
     @XmlAttribute(name = "ref", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object ref;
     @XmlAttribute(name = "uri", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlSchemaType(name = "anyURI")
-    protected java.lang.String uri;
+    protected String uri;
     @XmlAttribute(name = "metadata", namespace = "http://release.niem.gov/niem/structures/5.0/")
     @XmlIDREF
     @XmlSchemaType(name = "IDREFS")
@@ -81,17 +79,17 @@ public class DateTime {
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger sequenceID;
     @XmlAnyAttribute
-    private Map<QName, java.lang.String> otherAttributes = new HashMap<QName, java.lang.String>();
+    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * Gets the value of the value property.
+     * A data type for country codes.
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link CountryAlpha3CodeSimpleType }
      *     
      */
-    public XMLGregorianCalendar getValue() {
+    public CountryAlpha3CodeSimpleType getValue() {
         return value;
     }
 
@@ -100,10 +98,10 @@ public class DateTime {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link CountryAlpha3CodeSimpleType }
      *     
      */
-    public void setValue(XMLGregorianCalendar value) {
+    public void setValue(CountryAlpha3CodeSimpleType value) {
         this.value = value;
     }
 
@@ -112,10 +110,10 @@ public class DateTime {
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public java.lang.String getId() {
+    public String getId() {
         return id;
     }
 
@@ -124,10 +122,10 @@ public class DateTime {
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public void setId(java.lang.String value) {
+    public void setId(String value) {
         this.id = value;
     }
 
@@ -160,10 +158,10 @@ public class DateTime {
      * 
      * @return
      *     possible object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public java.lang.String getUri() {
+    public String getUri() {
         return uri;
     }
 
@@ -172,10 +170,10 @@ public class DateTime {
      * 
      * @param value
      *     allowed object is
-     *     {@link java.lang.String }
+     *     {@link String }
      *     
      */
-    public void setUri(java.lang.String value) {
+    public void setUri(String value) {
         this.uri = value;
     }
 
@@ -275,7 +273,7 @@ public class DateTime {
      * @return
      *     always non-null
      */
-    public Map<QName, java.lang.String> getOtherAttributes() {
+    public Map<QName, String> getOtherAttributes() {
         return otherAttributes;
     }
 

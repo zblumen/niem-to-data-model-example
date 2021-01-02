@@ -15,14 +15,14 @@ import gov.niem.utility.structures.ObjectType;
 
 
 /**
- * A data type for a geopolitical area in which an organization, person, or object has a specific range of authority.
+ * A data type for a hash value representing an object encoded in a binary format.
  * 
- * <p>Java class for JurisdictionType complex type.
+ * <p>Java class for BinaryHashType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="JurisdictionType"&gt;
+ * &lt;complexType name="BinaryHashType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://release.niem.gov/niem/structures/5.0/}ObjectType"&gt;
  *       &lt;anyAttribute processContents='lax' namespace='urn:us:gov:ic:ntk urn:us:gov:ic:ism'/&gt;
@@ -34,8 +34,8 @@ import gov.niem.utility.structures.ObjectType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "JurisdictionType", namespace = "http://release.niem.gov/niem/niem-core/5.0/")
-public class JurisdictionType
+@XmlType(name = "BinaryHashType", namespace = "http://release.niem.gov/niem/niem-core/5.0/")
+public class BinaryHashType
     extends ObjectType
 {
 

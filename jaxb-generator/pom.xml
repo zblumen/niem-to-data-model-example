@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <niem.dir>../niem-5.0//schema-subset/xsd/</niem.dir>
+        <niem.dir>../iepd-package</niem.dir>
     </properties>
 
     <build>
@@ -48,7 +48,7 @@
                     <generateEpisode>false</generateEpisode>
                     <noPackageLevelAnnotations>true</noPackageLevelAnnotations>
                     <sources>
-                        <source>${niem.dir}</source>
+                        <source>${niem.dir}/iepd</source>
                     </sources>
                     <xjcSourceExcludeFilters>
                         <filter implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">

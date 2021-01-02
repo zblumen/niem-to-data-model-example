@@ -2,12 +2,11 @@ package com.zblumen.model.domain.subject;
 
 import com.zblumen.model.conversion.Niemable;
 import com.zblumen.model.domain.item.binary.Image;
-import gov.niem.core.PersonType;
+import gov.niem.core.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
@@ -35,6 +34,10 @@ public class Person extends Subject implements Niemable<PersonType> {
 
     Set<Image> images;
 
+    private PersonNameType convertPersonName(){
+        PersonNameType result = ncObjectFactory.createPersonNameType();
+        return result;
+    }
 
     @Override
     public PersonType makeNiemType() {

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://release.niem.gov/niem/niem-core/5.0/" version="1" xml:lang="en-US" xsi:schemaLocation="http://release.niem.gov/niem/appinfo/5.0/ utility/appinfo.xsd http://release.niem.gov/niem/conformanceTargets/3.0/ utility/conformanceTargets.xsd" ct:conformanceTargets="http://reference.niem.gov/niem/specification/naming-and-design-rules/5.0/#ReferenceSchemaDocument" xmlns:nc="http://release.niem.gov/niem/niem-core/5.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:structures="http://release.niem.gov/niem/structures/5.0/" xmlns:ct="http://release.niem.gov/niem/conformanceTargets/3.0/" xmlns:appinfo="http://release.niem.gov/niem/appinfo/5.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:niem-xs="http://release.niem.gov/niem/proxy/niem-xs/5.0/">
+  <xs:annotation>
+    <xs:documentation>NIEM Core.</xs:documentation>
+    <xs:appinfo>
+      <appinfo:LocalTerm term="2D" literal="Two-dimensional"/>
+      <appinfo:LocalTerm term="3D" literal="Three-dimensional"/>
+      <appinfo:LocalTerm term="Alpha2" definition="Two-letter"/>
+      <appinfo:LocalTerm term="Alpha3" definition="Three-letter"/>
+      <appinfo:LocalTerm term="CMV" literal="Commercial Motor Vehicle"/>
+      <appinfo:LocalTerm term="DEA" literal="Drug Enforcement Administration"/>
+      <appinfo:LocalTerm term="ESN" literal="electronic serial number"/>
+      <appinfo:LocalTerm term="FATCA" literal="Foreign Account Tax Compliance Act"/>
+      <appinfo:LocalTerm term="FIPS" literal="Federal Information Processing Standards"/>
+      <appinfo:LocalTerm term="GENC" literal="Geopolitical Entities, Names, and Codes"/>
+      <appinfo:LocalTerm term="GSM" literal="Global System for Mobile communication"/>
+      <appinfo:LocalTerm term="IMEI" literal="International Mobile Equipment Identity"/>
+      <appinfo:LocalTerm term="IPv4" literal="Internet Protocol version 4"/>
+      <appinfo:LocalTerm term="IPv6" literal="Internet Protocol version 6"/>
+      <appinfo:LocalTerm term="ISO" literal="International Organization for Standardization"/>
+      <appinfo:LocalTerm term="ISO3166" definition="ISO 3166 is a standard published by the International Organization for Standardization (ISO) that defines codes for the names of countries, dependent territories, special areas of geographical interest, and their principal subdivisions (e.g., provinces or states). The official name of the standard is Codes for the representation of names of countries and their subdivisions."/>
+      <appinfo:LocalTerm term="ISSN" literal="International Standard Serial Number"/>
+      <appinfo:LocalTerm term="MAC" literal="media access control address"/>
+      <appinfo:LocalTerm term="MIME" literal="Multipurpose Internet Mail Extensions"/>
+      <appinfo:LocalTerm term="MSRP" literal="Manufacturer's suggested retail price"/>
+      <appinfo:LocalTerm term="NANP" literal="North American Numbering Plan"/>
+      <appinfo:LocalTerm term="Postdirectional" definition="A word following a street name that indicates the directional taken by the thoroughfare from an arbitrary starting point or line, or the sector where it is located."/>
+      <appinfo:LocalTerm term="Predirectional" definition="A word preceding a street name that indicates the directional taken by the thoroughfare from an arbitrary starting point or line, or the sector where it is located."/>
+      <appinfo:LocalTerm term="RFID" literal="Radio-frequency identification"/>
+      <appinfo:LocalTerm term="RH" definition="Rhesus (Rh) factor is an inherited protein found on the surface of red blood cells."/>
+      <appinfo:LocalTerm term="SSN" literal="Social Security Number"/>
+      <appinfo:LocalTerm term="TCP" literal="Transmission Control Protocol"/>
+      <appinfo:LocalTerm term="UMTS" literal="Universal Mobile Telecommunications Service"/>
+      <appinfo:LocalTerm term="UTC" literal="Coordinated Universal Time"/>
+      <appinfo:LocalTerm term="UTM" literal="Universal Transverse Mercator"/>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="http://release.niem.gov/niem/proxy/niem-xs/5.0/" schemaLocation="adapters/niem-xs.xsd"/>
+  <xs:import namespace="http://release.niem.gov/niem/structures/5.0/" schemaLocation="utility/structures.xsd"/>
+  <xs:complexType name="BinaryHashType">
+    <xs:annotation>
+      <xs:documentation>A data type for a hash value representing an object encoded in a binary format.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BinaryType">
+    <xs:annotation>
+      <xs:documentation>A data type for a digital representation of an object encoded in a binary format.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:BinaryHash" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:BinaryURI" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CountryType">
+    <xs:annotation>
+      <xs:documentation>A data type for a country, territory, dependency, or other such geopolitical subdivision of a location.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:CountryRepresentation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DateType">
+    <xs:annotation>
+      <xs:documentation>A data type for a calendar date.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:DateRepresentation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DocumentType">
+    <xs:annotation>
+      <xs:documentation>A data type for a paper or electronic document.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:DocumentCategoryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:DocumentContentAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:DocumentDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EntityType">
+    <xs:annotation>
+      <xs:documentation>A data type for a person, organization, or item.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:EntityRepresentation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenericEntityType">
+    <xs:annotation>
+      <xs:documentation>A data type for a basic set of information about a person or an organization.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:EntityName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:EntityDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IdentificationType">
+    <xs:annotation>
+      <xs:documentation>A data type for a representation of an identity.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:IdentificationID" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:IdentificationJurisdiction" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:IdentificationCategoryDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:IdentificationEffectiveDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:IdentificationExpirationDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:IdentificationSourceText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:IdentificationStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ImageType">
+    <xs:annotation>
+      <xs:documentation>A data type for a picture or visual representation of something.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="nc:BinaryType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="JurisdictionType">
+    <xs:annotation>
+      <xs:documentation>A data type for a geopolitical area in which an organization, person, or object has a specific range of authority.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MessageType">
+    <xs:annotation>
+      <xs:documentation>A data type for an electronic form of communication that can be exchanged asynchronously.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:MessageID" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageRecipientAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageSenderAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageSentDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageSubjectText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageAttachmentAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:MessageCategoryAbstract" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonNameTextType">
+    <xs:annotation>
+      <xs:documentation>A data type for a name by which a person is known, referred, or addressed.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nc:ProperNameTextType"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PersonNameType">
+    <xs:annotation>
+      <xs:documentation>A data type for a combination of names and/or titles by which a person is known.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:PersonGivenName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonSurName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonFullName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonNationalityType">
+    <xs:annotation>
+      <xs:documentation>A data type for a person's position or status with a country that grants a person citizenship or a country in which a person is deemed a national.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:PersonNationalityCountry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonType">
+    <xs:annotation>
+      <xs:documentation>A data type for a human being.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType">
+        <xs:sequence>
+          <xs:element ref="nc:PersonBirthDate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonDigitalImage" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonOtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonSexAbstract" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="nc:PersonNationality" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ProperNameTextType">
+    <xs:annotation>
+      <xs:documentation>A data type for a word or phrase by which a person or thing is known, referred, or addressed.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nc:TextType"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="StatusType">
+    <xs:annotation>
+      <xs:documentation>A data type for a state of something or someone.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="structures:ObjectType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TextType">
+    <xs:annotation>
+      <xs:documentation>A data type for a character string.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="niem-xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="BinaryDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of a binary object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryHash" type="nc:BinaryHashType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A hash value representing an object encoded in a binary format.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="BinaryURI" type="niem-xs:anyURI" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A URL or file reference of a binary object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CountryRepresentation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a representation of a country.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DateRepresentation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a representation of a date.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DateTime" type="niem-xs:dateTime" substitutionGroup="nc:DateRepresentation">
+    <xs:annotation>
+      <xs:documentation>A full date and time.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DocumentBinary" type="nc:BinaryType" substitutionGroup="nc:DocumentContentAbstract">
+    <xs:annotation>
+      <xs:documentation>A binary encoding of the content of a document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DocumentCategoryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a kind of document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DocumentCategoryName" type="nc:TextType" substitutionGroup="nc:DocumentCategoryAbstract">
+    <xs:annotation>
+      <xs:documentation>A name of a category of information in a document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DocumentContentAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for the content of a document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DocumentDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of the content of a document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DocumentText" type="nc:TextType" substitutionGroup="nc:DocumentContentAbstract">
+    <xs:annotation>
+      <xs:documentation>A text or contents of a document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of an entity.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityName" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A name of an entity.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityPerson" type="nc:PersonType" substitutionGroup="nc:EntityRepresentation">
+    <xs:annotation>
+      <xs:documentation>A person capable of bearing legal rights and responsibilities.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EntityRepresentation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a representation of an entity.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="GenericEntity" type="nc:GenericEntityType" substitutionGroup="nc:EntityRepresentation">
+    <xs:annotation>
+      <xs:documentation>A basic set of information about a person or an organization.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationCategoryDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of a kind of identification.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationEffectiveDate" type="nc:DateType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A date an identification takes effect.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationExpirationDate" type="nc:DateType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A date after which an identification is no longer valid.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationID" type="niem-xs:string" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identifier.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationJurisdiction" type="nc:JurisdictionType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An area, region, or unit where a unique identification is issued.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationSourceText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A person, organization, or locale which issues an identification.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IdentificationStatus" type="nc:StatusType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A status of an identification.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageAttachmentAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a file which is sent along with a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageAttachmentBinary" type="nc:BinaryType" substitutionGroup="nc:MessageAttachmentAbstract">
+    <xs:annotation>
+      <xs:documentation>A binary file which is attached to a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageAttachmentDocument" type="nc:DocumentType" substitutionGroup="nc:MessageAttachmentAbstract">
+    <xs:annotation>
+      <xs:documentation>A document which is attached to a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageAttachmentImage" type="nc:ImageType" substitutionGroup="nc:MessageAttachmentAbstract" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An image file which is attached to a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageCategoryAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a kind of message category.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageCategoryText" type="nc:TextType" substitutionGroup="nc:MessageCategoryAbstract">
+    <xs:annotation>
+      <xs:documentation>A kind of message category.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageID" type="niem-xs:string" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A message identifier associated with an email or message content.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageRecipientAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a recipient of a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageRecipientEntity" type="nc:EntityType" substitutionGroup="nc:MessageRecipientAbstract">
+    <xs:annotation>
+      <xs:documentation>An entity which receives a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageSenderAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a sender of a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageSenderEntity" type="nc:EntityType" substitutionGroup="nc:MessageSenderAbstract">
+    <xs:annotation>
+      <xs:documentation>An entity which sends a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageSentDate" type="nc:DateType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A date on which a message is sent.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageSubjectText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A subject line or field of a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="MessageText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A body or main content of a message.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonBirthDate" type="nc:DateType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A date a person was born.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonDescriptionText" type="nc:TextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A description of a person.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonDigitalImage" type="nc:ImageType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A photograph or image of a person in a digital format.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonFullName" type="nc:PersonNameTextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A complete name of a person.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonGivenName" type="nc:PersonNameTextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A first name of a person.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonName" type="nc:PersonNameType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A combination of names and/or titles by which a person is known.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonNationality" type="nc:PersonNationalityType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A person's position or status with a country that grants a person citizenship or a country in which a person is deemed a national.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonNationalityCountry" type="nc:CountryType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A country of a person's citizenship or a country in which a person is deemed a national.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonOtherIdentification" type="nc:IdentificationType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>An identification with a kind that is not explicitly defined in the standard that refers to a person within a certain domain.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonSexAbstract" abstract="true">
+    <xs:annotation>
+      <xs:documentation>A data concept for a gender or sex of a person.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PersonSurName" type="nc:PersonNameTextType" nillable="true">
+    <xs:annotation>
+      <xs:documentation>A last name or family name of a person.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

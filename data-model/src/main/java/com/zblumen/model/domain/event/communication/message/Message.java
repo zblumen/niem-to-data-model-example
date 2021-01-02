@@ -1,6 +1,6 @@
 package com.zblumen.model.domain.event.communication.message;
 
-import com.zblumen.model.conversion.Niemable;
+import com.zblumen.model.conversion.NiemTypeConverter;
 import com.zblumen.model.domain.event.communication.Communication;
 import com.zblumen.model.domain.item.binary.BinaryFile;
 import com.zblumen.model.domain.item.binary.Image;
@@ -28,26 +28,19 @@ public abstract class Message extends Communication {
         result.getMessageSentDate().add(convertDateType(this.eventDate));
 
         if(this.referenceId !=null){
-            result.getMessageReferenceID().add(convertString(this.referenceId));
+            result.getMessageID().add(convertString(this.referenceId));
         }
         if(this.personRecipients != null){
             this.personRecipients.forEach( person -> {
                 result.getMessageRecipientAbstract()
-                        .add(this.ncObjectFactory.createPerson(person.makeNiemType()));
-            });
-        }
-
-        if(this.organizationRecipients != null){
-            this.organizationRecipients.forEach( organization -> {
-                result.getMessageRecipientAbstract()
-                        .add(this.ncObjectFactory.createOrganization(organization.makeNiemType()));
+                        .add(this.ncObjectFactory.createMessageRecipientAbstract(person.makeNiemType()));
             });
         }
 
         if(this.genericRecipients != null){
             this.genericRecipients.forEach( genericSubject -> {
                 result.getMessageRecipientAbstract()
-                        .add(this.ncObjectFactory.createGenericEntity(genericSubject.makeNiemType()));
+                        .add(this.ncObjectFactory.createMessageRecipientAbstract(genericSubject.makeNiemType()));
             });
         }
 
@@ -83,7 +76,6 @@ public abstract class Message extends Communication {
                         .add(this.ncObjectFactory.createMessageAttachmentBinary(attachment.makeNiemType()));
             });
         }
-
 
         return result;
     }

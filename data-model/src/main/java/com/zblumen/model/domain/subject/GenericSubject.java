@@ -8,6 +8,10 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class GenericSubject extends Subject implements Niemable<GenericEntityType> {
+
+    private String name;
+    private String description;
+
     @Override
     public GenericEntityType makeNiemType() {
         return null;

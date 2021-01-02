@@ -11,32 +11,31 @@ package gov.niem.core;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import gov.niem.utility.structures.ObjectType;
 
 
 /**
- * A data type for a geopolitical area in which an organization, person, or object has a specific range of authority.
+ * A data type for a name by which a person is known, referred, or addressed.
  * 
- * <p>Java class for JurisdictionType complex type.
+ * <p>Java class for PersonNameTextType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="JurisdictionType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;extension base="{http://release.niem.gov/niem/structures/5.0/}ObjectType"&gt;
+ * &lt;complexType name="PersonNameTextType"&gt;
+ *   &lt;simpleContent&gt;
+ *     &lt;extension base="&lt;http://release.niem.gov/niem/niem-core/5.0/&gt;ProperNameTextType"&gt;
  *       &lt;anyAttribute processContents='lax' namespace='urn:us:gov:ic:ntk urn:us:gov:ic:ism'/&gt;
  *     &lt;/extension&gt;
- *   &lt;/complexContent&gt;
+ *   &lt;/simpleContent&gt;
  * &lt;/complexType&gt;
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "JurisdictionType", namespace = "http://release.niem.gov/niem/niem-core/5.0/")
-public class JurisdictionType
-    extends ObjectType
+@XmlType(name = "PersonNameTextType", namespace = "http://release.niem.gov/niem/niem-core/5.0/")
+public class PersonNameTextType
+    extends ProperNameTextType
 {
 
 

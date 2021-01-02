@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.1" jxb:extensionBindingPrefixes="xjc">
+    <jxb:bindings schemaLocation="../iepd/base-xsd/adapters/niem-xs.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.adapters.xs">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+    <jxb:bindings schemaLocation="../iepd/base-xsd/domains/jxdm.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.domains.jxdm">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+    <jxb:bindings schemaLocation="../iepd/base-xsd/codes/genc.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.codes.genc">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+    <jxb:bindings schemaLocation="../iepd/base-xsd/utility/appinfo.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.utility.appinfo">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../iepd/base-xsd/utility/code-lists-instance.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.utility.codelists.instance">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../iepd/base-xsd/utility/code-lists-schema-appinfo.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.utility.codelists.schema.appinfo">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../iepd/base-xsd/utility/conformanceTargets.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.utility.conformance.targets">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../iepd/base-xsd/utility/structures.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.utility.structures">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+    <jxb:bindings schemaLocation="../iepd/base-xsd/niem-core.xsd" node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="gov.niem.core">
+            </jxb:package>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+</jxb:bindings>

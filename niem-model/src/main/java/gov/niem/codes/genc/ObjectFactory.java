@@ -6,7 +6,7 @@
 //
 
 
-package gov.niem.domains.jxdm;
+package gov.niem.codes.genc;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -17,7 +17,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the gov.niem.domains.jxdm package. 
+ * generated in the gov.niem.codes.genc package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -31,30 +31,30 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _PersonSexCode_QNAME = new QName("http://release.niem.gov/niem/domains/jxdm/7.0/", "PersonSexCode");
+    private final static QName _CountryAlpha3Code_QNAME = new QName("http://release.niem.gov/niem/codes/genc/5.0/", "CountryAlpha3Code");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: gov.niem.domains.jxdm
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: gov.niem.codes.genc
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link PersonSexCodeType }
+     * Create an instance of {@link CountryAlpha3CodeType }
      * 
      */
-    public PersonSexCodeType createPersonSexCodeType() {
-        return new PersonSexCodeType();
+    public CountryAlpha3CodeType createCountryAlpha3CodeType() {
+        return new CountryAlpha3CodeType();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PersonSexCodeType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountryAlpha3CodeType }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://release.niem.gov/niem/domains/jxdm/7.0/", name = "PersonSexCode", substitutionHeadNamespace = "http://release.niem.gov/niem/niem-core/5.0/", substitutionHeadName = "PersonSexAbstract")
-    public JAXBElement<PersonSexCodeType> createPersonSexCode(PersonSexCodeType value) {
-        return new JAXBElement<PersonSexCodeType>(_PersonSexCode_QNAME, PersonSexCodeType.class, null, value);
+    @XmlElementDecl(namespace = "http://release.niem.gov/niem/codes/genc/5.0/", name = "CountryAlpha3Code", substitutionHeadNamespace = "http://release.niem.gov/niem/niem-core/5.0/", substitutionHeadName = "CountryRepresentation")
+    public JAXBElement<CountryAlpha3CodeType> createCountryAlpha3Code(CountryAlpha3CodeType value) {
+        return new JAXBElement<CountryAlpha3CodeType>(_CountryAlpha3Code_QNAME, CountryAlpha3CodeType.class, null, value);
     }
 
 }

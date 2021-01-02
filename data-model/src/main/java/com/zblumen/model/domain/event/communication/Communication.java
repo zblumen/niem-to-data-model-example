@@ -14,7 +14,6 @@ import java.util.List;
 public abstract class Communication extends Event {
 
     protected List<Person> personRecipients;
-    protected List<Organization> organizationRecipients;
     protected List<GenericSubject> genericRecipients;
     protected Boolean isGroupCommunication;
     protected Group communicationGroup;
